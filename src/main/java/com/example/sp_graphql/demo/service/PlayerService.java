@@ -2,6 +2,7 @@ package com.example.sp_graphql.demo.service;
 
 import com.example.sp_graphql.demo.model.Player;
 import com.example.sp_graphql.demo.model.Team;
+import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -53,6 +54,14 @@ public class PlayerService {
         return  updatedPlayer;
     }
 
+    @PostConstruct
+    private void init(){
+        players.add(new Player(id.incrementAndGet(), "MS Dhoni", Team.CSK));
+        players.add(new Player(id.incrementAndGet(), "Rohit Sharma", Team.MI));
+        players.add(new Player(id.incrementAndGet(), "Rishabh Pant", Team.DC));
+        players.add(new Player(id.incrementAndGet(), "Suresh Raina", Team.GT));
+
+    }
 
 
 
